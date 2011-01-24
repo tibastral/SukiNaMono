@@ -18,7 +18,7 @@ var GameView = function (canvas) {
   var objects = [];
 
   var drawTile = function (x, y, type) {
-    ctx.fillStyle = "rgba(0, 0, 0)";
+    ctx.fillStyle = "rgb(0, 0, 0)";
 
     ctx.beginPath();
     ctx.rect(x, y, TILE_WIDTH, TILE_HEIGHT);
@@ -36,7 +36,7 @@ var GameView = function (canvas) {
 
   var printObject = function (object)
   {
-    ctx.fillStyle = "#00ff00";
+    ctx.fillStyle = "rgb(0, 255, 0)";
     ctx.beginPath();
     ctx.rect(object.x, object.y, object.width, object.height);
     ctx.closePath();
