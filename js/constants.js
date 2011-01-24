@@ -1,0 +1,2 @@
+var TILE_HEIGHT = 20;
+var TILE_WIDTH  = 20;
