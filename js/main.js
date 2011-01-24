@@ -1,63 +1,37 @@
 function main()
 {
-  var gv = new GameView($('#canvas'));
-
-  var gameMap = new GameMap([
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-  ]);
-
-
-  var cursor = new Cursor(0, 1); // @TODO: faire attention à la limite de la map
-
-  gv.setMap(gameMap);
-  gv.addObject(cursor);
-
-  gv.draw();
-
   var gameController = new GameController();
-
-
-// EVENT...
-
-
-
-var canvasMinX;
-var canvasMaxX;
-
-function init_mouse() {
-  canvasMinX = $("#canvas").offset().left;
-  canvasMaxX = canvasMinX + WIDTH;
 }
 
-function onMouseMove(evt) {
-  if (evt.pageX > canvasMinX && evt.pageX < canvasMaxX) {
-    paddlex = evt.pageX - canvasMinX;
-  }
-}
-
-$(document).mousemove(onMouseMove);
-
-
-
-
-
-
-
-
-
-
+// // EVENT...
+// 
+// 
+// 
+// var canvasMinX;
+// var canvasMaxX;
+// 
+// function init_mouse() {
+//   canvasMinX = $("#canvas").offset().left;
+//   canvasMaxX = canvasMinX + WIDTH;
+// }
+// 
+// function onMouseMove(evt) {
+//   if (evt.pageX > canvasMinX && evt.pageX < canvasMaxX) {
+//     paddlex = evt.pageX - canvasMinX;
+//   }
+// }
+// 
+// $(document).mousemove(onMouseMove);
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
 
 
@@ -91,4 +65,4 @@ $(document).mousemove(onMouseMove);
   // $(document).keyup(this.onKeyUp);
   // 
   // setInterval(draw, 10);
-}
+//}
