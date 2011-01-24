@@ -24,11 +24,9 @@ var GameController = function () {
   gv.setMap(gameMap);
   gv.addObject(cursor);
 
-
-
   function onMouseMove(evt) {
-    evt.pageX
-    evt.pageY
+    cursor.setXTile(gv.XToXTile(evt.pageX));
+    cursor.setYTile(gv.YToYTile(evt.pageY));
   }
   
   $(document).mousemove(onMouseMove);

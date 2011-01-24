@@ -17,6 +17,9 @@ var GameView = function (canvas) {
   var gameMap;
   var objects = [];
 
+  this.offsetY = canvas.offset().top;
+  this.offsetX = canvas.offset().left;
+
   var drawTile = function (x, y, type) {
     ctx.fillStyle = "rgb(0, 0, 0)";
 
@@ -36,7 +39,10 @@ var GameView = function (canvas) {
 
   var printObject = function (object)
   {
-    ctx.fillStyle = "rgb(0, 255, 0)";
+    if (gameMap.map[object.yTile][object.xTile] == 1)
+      ctx.fillStyle = "rgb(255, 0, 0)";
+    else
+      ctx.fillStyle = "rgb(0, 255, 0)";
     ctx.beginPath();
     ctx.rect(object.x, object.y, object.width, object.height);
     ctx.closePath();
@@ -71,4 +77,12 @@ var GameView = function (canvas) {
   this.addObject = function (object) {
     objects.push(object);
   };
+
+  this.XToXTile = function (x) {
+    return Math.floor((x - this.offsetX) / TILE_WIDTH);
+  }
+
+  this.YToYTile = function (y) {
+    return Math.floor((y - this.offsetY) / TILE_HEIGHT);
+  }
 }
