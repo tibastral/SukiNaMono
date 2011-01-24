@@ -79,10 +79,20 @@ var GameView = function (canvas) {
   };
 
   this.XToXTile = function (x) {
-    return Math.floor((x - this.offsetX) / TILE_WIDTH);
+    var res = Math.floor((x - this.offsetX) / TILE_WIDTH);
+    if (res < 0)
+      res = 0;
+    if (res > gameMap.width - 1)
+      res = gameMap.width - 1;
+    return res;
   }
 
   this.YToYTile = function (y) {
-    return Math.floor((y - this.offsetY) / TILE_HEIGHT);
+    var res = Math.floor((y - this.offsetY) / TILE_HEIGHT);
+    if (res < 0)
+      res = 0;
+    if (res > gameMap.height - 1)
+      res = gameMap.height - 1;
+    return res;
   }
 }

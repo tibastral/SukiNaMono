@@ -19,7 +19,7 @@ var GameController = function () {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   ]);
 
-  var cursor = new Cursor(0, 1); // @TODO: faire attention à la limite de la map
+  var cursor = new Cursor(1, 3); // @TODO: faire attention à la limite de la map
 
   gv.setMap(gameMap);
   gv.addObject(cursor);
