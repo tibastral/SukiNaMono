@@ -1,5 +1,4 @@
 var GameView = function (canvas) {
-
   if (!canvas)
     return ; // @TODO: throw error;
 
@@ -43,6 +42,8 @@ var GameView = function (canvas) {
       ctx.fillStyle = "rgb(255, 0, 0)";
     else
       ctx.fillStyle = "rgb(0, 255, 0)";
+    if (object.current_selected_object_id)
+      ctx.fillStyle = "rgb(0, 0, 255)";
     ctx.beginPath();
     ctx.rect(object.x, object.y, object.width, object.height);
     ctx.closePath();
@@ -52,10 +53,10 @@ var GameView = function (canvas) {
   var drawMap = function () {
     for (var i = 0; i < gameMap.height; ++i)
     {
-     for (var j = 0; j < gameMap.width; ++j)
-     {
-      drawTile(j * TILE_WIDTH, i * TILE_HEIGHT, gameMap.map[i][j]);
-     }
+      for (var j = 0; j < gameMap.width; ++j)
+      {
+        drawTile(j * TILE_WIDTH, i * TILE_HEIGHT, gameMap.map[i][j]);
+      }
     }
   }
 

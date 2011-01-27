@@ -3,6 +3,8 @@ var Cursor = function (xTile, yTile)
   // if (xTile < 0 || yTile < 0) // @TODO: Do the error handling properly.
   //     return ; // @TODO: Throw error;
   var that = this;
+  this.current_selected_object_id = null;
+
 
   var computeX = function () {
     that.x = that.xTile * TILE_WIDTH;

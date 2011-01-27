@@ -1,7 +1,8 @@
 var GameController = function () {
   var canvas = $('#canvas');
+  var that = this;
 
-  var gv = new GameView(canvas);
+  this.gv = new GameView(canvas);
 
   var gameMap = new GameMap([
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -19,17 +20,10 @@ var GameController = function () {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   ]);
 
-  var cursor = new Cursor(1, 3); // @TODO: faire attention à la limite de la map
+  var cursorController = new CursorController(this);
 
-  gv.setMap(gameMap);
-  gv.addObject(cursor);
+  this.gv.setMap(gameMap);
+  this.gv.addObject(cursorController.cursor);
 
-  function onMouseMove(evt) {
-    cursor.setXTile(gv.XToXTile(evt.pageX));
-    cursor.setYTile(gv.YToYTile(evt.pageY));
-  }
-  
-  $(document).mousemove(onMouseMove);
-  
-  setInterval(function () {gv.draw()}, 30);
+  setInterval(function () {that.gv.draw()}, 30);
 }
