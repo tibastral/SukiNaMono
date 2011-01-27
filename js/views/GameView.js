@@ -96,4 +96,7 @@ var GameView = function (canvas) {
       res = gameMap.height - 1;
     return res;
   }
+  this.gameMap = function () {
+    return gameMap;
+  }
 }
