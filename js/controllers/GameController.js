@@ -20,9 +20,9 @@ var GameController = function () {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   ]);
 
-  var cursorController = new CursorController(this);
 
   this.gv.setMap(gameMap);
+  var cursorController = new CursorController(this);
   this.gv.addObject(cursorController.cursor);
 
   setInterval(function () {that.gv.draw()}, 30);
