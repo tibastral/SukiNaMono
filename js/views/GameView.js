@@ -23,7 +23,14 @@ var GameView = function (canvas) {
     ctx.fillStyle = "rgb(0, 0, 0)";
 
     ctx.beginPath();
-    ctx.rect(x, y, TILE_WIDTH, TILE_HEIGHT);
+    ctx.moveTo(x + TILE_WIDTH / 2, y / 2);
+
+    ctx.lineTo(x + TILE_WIDTH, (y + TILE_HEIGHT / 2) / 2);
+    ctx.lineTo(x + TILE_WIDTH / 2, (y + TILE_HEIGHT) / 2);
+    ctx.lineTo(x, (y + TILE_HEIGHT / 2) / 2);
+    ctx.lineTo(x + TILE_WIDTH / 2, y / 2);
+
+    // ctx.rect(x, y, TILE_WIDTH, TILE_HEIGHT);
     ctx.closePath();
 
     if (type == 1)
@@ -45,7 +52,15 @@ var GameView = function (canvas) {
     if (object.current_selected_object_id)
       ctx.fillStyle = "rgb(0, 0, 255)";
     ctx.beginPath();
-    ctx.rect(object.x, object.y, object.width, object.height);
+    ctx.lineTo(object.x + object.width, (object.y + object.height / 2) / 2);
+    ctx.lineTo(object.x + object.width / 2, (object.y + object.height) / 2);
+    ctx.lineTo(object.x, (object.y + object.height / 2) / 2);
+    ctx.lineTo(object.x + object.width / 2, object.y / 2);
+
+
+
+
+        // ctx.rect(object.x, object.y, object.width, object.height);
     ctx.closePath();
     ctx.fill();
   }
@@ -55,7 +70,8 @@ var GameView = function (canvas) {
     {
       for (var j = 0; j < gameMap.width; ++j)
       {
-        drawTile(j * TILE_WIDTH, i * TILE_HEIGHT, gameMap.map[i][j]);
+        drawTile((j - i) * TILE_WIDTH / 2, (j + i) * TILE_HEIGHT / 2, gameMap.map[i][j]);
+        // drawTile(j * TILE_WIDTH, i * TILE_HEIGHT, gameMap.map[i][j]);
       }
     }
   }
@@ -80,7 +96,7 @@ var GameView = function (canvas) {
   };
 
   this.XToXTile = function (x) {
-    var res = Math.floor((x - this.offsetX) / TILE_WIDTH);
+    var res = Math.floor((x - that.offsetX) / TILE_WIDTH);
     if (res < 0)
       res = 0;
     if (res > gameMap.width - 1)
@@ -89,7 +105,7 @@ var GameView = function (canvas) {
   }
 
   this.YToYTile = function (y) {
-    var res = Math.floor((y - this.offsetY) / TILE_HEIGHT);
+    var res = Math.floor((y - that.offsetY) / TILE_HEIGHT);
     if (res < 0)
       res = 0;
     if (res > gameMap.height - 1)

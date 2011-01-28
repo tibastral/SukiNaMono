@@ -6,11 +6,9 @@ var Cursor = function (xTile, yTile)
   this.current_selected_object_id = null;
 
 
-  var computeX = function () {
-    that.x = that.xTile * TILE_WIDTH;
-  }
-  var computeY = function () {
-    that.y = that.yTile * TILE_HEIGHT;
+  var computeXY = function () {
+    that.x = (that.xTile - that.yTile) * that.width / 2
+    that.y = (that.yTile + that.xTile) * that.height / 2
   }
 
   this.x = 0;
@@ -19,15 +17,11 @@ var Cursor = function (xTile, yTile)
   this.yTile = yTile;
   this.width = TILE_WIDTH;
   this.height = TILE_HEIGHT;
-  computeX();
-  computeY();
+  computeXY();
 
-  this.setXTile = function (_xTile) {
+  this.setXYTile = function (_xTile, _yTile) {
     that.xTile = _xTile;
-    computeX();
-  }
-  this.setYTile = function (_yTile) {
     that.yTile = _yTile;
-    computeY();
+    computeXY();
   }
 }
