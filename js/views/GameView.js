@@ -16,6 +16,8 @@ var GameView = function (canvas) {
   var gameMap;
   var objects = [];
 
+  this.originX = 0;
+  this.originY = 0;
   this.offsetY = canvas.offset().top;
   this.offsetX = canvas.offset().left;
 

@@ -24,6 +24,12 @@ var GameController = function () {
   this.gv.setMap(gameMap);
   var cursorController = new CursorController(this);
   this.gv.addObject(cursorController.cursor);
-
+  
+  $(document).keydown(function (ev) {
+    if (ev.keyCode == "37") {
+      that.gv.originX -= 1;
+    }
+  })
+  // $(document).keydown(function (ev) {alert ($(this))});
   setInterval(function () {that.gv.draw()}, 30);
 }
