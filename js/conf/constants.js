@@ -1,2 +1,2 @@
-var TILE_HEIGHT = 20;
-var TILE_WIDTH  = 20;
+var TILE_HEIGHT = 52;
+var TILE_WIDTH  = 52;

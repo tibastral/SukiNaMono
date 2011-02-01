@@ -36,7 +36,7 @@ var GameController = function () {
     } else if (ev.keyCode == "40") {
       that.gv.originY -= 15;
     }
-  })
+  });
   // $(document).keydown(function (ev) {alert ($(this))});
   setInterval(function () {that.gv.draw()}, 30);
 }

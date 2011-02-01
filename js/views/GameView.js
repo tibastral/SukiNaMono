@@ -23,26 +23,30 @@ var GameView = function (canvas) {
   this.offsetX = canvas.offset().left;
 
   var drawTile = function (x, y, type) {
-    ctx.fillStyle = "rgb(0, 0, 0)";
-
-    ctx.beginPath();
-
     x = x + that.originX;
     y = y + that.originY;
-    ctx.moveTo(x + TILE_WIDTH / 2, y / 2);
 
-    ctx.lineTo(x + TILE_WIDTH, (y + TILE_HEIGHT / 2) / 2);
-    ctx.lineTo(x + TILE_WIDTH / 2, (y + TILE_HEIGHT) / 2);
-    ctx.lineTo(x, (y + TILE_HEIGHT / 2) / 2);
-    ctx.lineTo(x + TILE_WIDTH / 2, y / 2);
+    if (type == 0) {
+      ctx.fillStyle = "rgb(0, 0, 0)";
 
-    // ctx.rect(x, y, TILE_WIDTH, TILE_HEIGHT);
-    ctx.closePath();
+      ctx.beginPath();
 
-    if (type == 1)
-      ctx.fill();
-    else
+      ctx.moveTo(x + TILE_WIDTH / 2, y / 2);
+
+      ctx.lineTo(x + TILE_WIDTH, (y + TILE_HEIGHT / 2) / 2);
+      ctx.lineTo(x + TILE_WIDTH / 2, (y + TILE_HEIGHT) / 2);
+      ctx.lineTo(x, (y + TILE_HEIGHT / 2) / 2);
+      ctx.lineTo(x + TILE_WIDTH / 2, y / 2);
+
+      // ctx.rect(x, y, TILE_WIDTH, TILE_HEIGHT);
+      ctx.closePath();
+
       ctx.stroke();
+    } else {
+      var image = new Image();
+      image.src = "images/land.png";
+      ctx.drawImage(image, x, y / 2);
+    }
   }
 
   var clear = function () {
@@ -85,11 +89,8 @@ var GameView = function (canvas) {
 
   this.draw = function () {
     clear();
-
     drawMap();
-
-    for (key in objects)
-    {
+    for (key in objects) {
       printObject(objects[key]);
     }
   };
