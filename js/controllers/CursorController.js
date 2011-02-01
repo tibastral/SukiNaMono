@@ -1,6 +1,6 @@
 var CursorController = function (parentController) {
   this.parentController = parentController;
-  this.cursor = new Cursor(1, 3); // @TODO: faire attention à la limite de la map
+  this.cursor = new Cursor();
   var cursor = this.cursor;
   var that = this;
   var gameView = that.parentController.gv

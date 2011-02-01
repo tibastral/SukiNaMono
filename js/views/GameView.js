@@ -55,8 +55,13 @@ var GameView = function (canvas) {
 
   var printObject = function (object)
   {
+    xPrint = object.x + that.originX;
+    yPrint = object.y + that.originY;
     if (object.hidden)
       return;
+    if (object.image) {
+      ctx.drawImage(object.image, xPrint, yPrint / 2);
+    }
     if (gameMap.map[object.yTile][object.xTile] == 1)
       ctx.fillStyle = "rgb(255, 0, 0)";
     else
@@ -64,8 +69,6 @@ var GameView = function (canvas) {
     if (object.current_selected_object_id)
       ctx.fillStyle = "rgb(0, 0, 255)";
     ctx.beginPath();
-    xPrint = object.x + that.originX;
-    yPrint = object.y + that.originY;
 
     ctx.lineTo(xPrint + object.width, (yPrint + object.height / 2) / 2);
     ctx.lineTo(xPrint + object.width / 2, (yPrint + object.height) / 2);
