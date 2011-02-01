@@ -9,16 +9,14 @@ var CursorController = function (parentController) {
   function onMouseMove(evt) {
     var offsetX = gameView.offsetX;
     var offsetY = gameView.offsetY;
-    var posX = evt.pageX - offsetX;
-    var posY = evt.pageY - offsetY;
+    var mousePosX = evt.pageX - offsetX;
+    var mousePosY = evt.pageY - offsetY;
 
-    var ymouse = (2 * posY - posX) / 2;
-    var xmouse = (posX + ymouse);
-    ymouse = Math.round(ymouse * 2 / TILE_HEIGHT);
-    xmouse = Math.round(xmouse * 2 / TILE_WIDTH) - 1;
-    console.log("x=", xmouse,"y=", ymouse);
+    var yTileMouse = Math.round((2 * mousePosY - mousePosX) / TILE_HEIGHT);
+    var xTileMouse = Math.round((2 * mousePosY + mousePosX) / TILE_WIDTH) - 1;
+    // console.log("x=", xTileMouse,"y=", yTileMouse);
 
-    cursor.setXYTile(xmouse, ymouse);
+    cursor.setXYTile(xTileMouse, yTileMouse);
   }
   
   $(document).mousemove(onMouseMove);
