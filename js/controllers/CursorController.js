@@ -9,12 +9,12 @@ var CursorController = function (parentController) {
   function onMouseMove(evt) {
     var offsetX = gameView.offsetX;
     var offsetY = gameView.offsetY;
-    var mousePosX = evt.pageX - offsetX;
-    var mousePosY = evt.pageY - offsetY;
+    var mousePosX = evt.pageX - gameView.originX - offsetX;
+    var mousePosY = evt.pageY - gameView.originY / 2 - offsetY;
 
     var yTileMouse = Math.round((2 * mousePosY - mousePosX) / TILE_HEIGHT);
     var xTileMouse = Math.round((2 * mousePosY + mousePosX) / TILE_WIDTH) - 1;
-    console.log("x=", xTileMouse,"y=", yTileMouse);
+    // console.log("x=", xTileMouse,"y=", yTileMouse);
 
     if (!(xTileMouse < 0 || xTileMouse > gameMap.width - 1 || yTileMouse < 0 || yTileMouse > gameMap.height - 1)) {
       cursor.setXYTile(xTileMouse, yTileMouse);
@@ -24,7 +24,7 @@ var CursorController = function (parentController) {
       cursor.hide();
   }
   
-  $('#canvas').mousemove(onMouseMove);
+  $(document).mousemove(onMouseMove);
   $('#canvas').click(function (evt) {
     if (cursor.current_selected_object_id && gameMap.map[cursor.yTile][cursor.xTile] == 0) {
       gameMap.map[cursor.yTile][cursor.xTile] = 1;

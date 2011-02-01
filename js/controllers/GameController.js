@@ -26,8 +26,15 @@ var GameController = function () {
   this.gv.addObject(cursorController.cursor);
   
   $(document).keydown(function (ev) {
+    cursorController.cursor.hide();
     if (ev.keyCode == "37") {
-      that.gv.originX -= 1;
+      that.gv.originX += 15;
+    } else if (ev.keyCode == "39") {
+      that.gv.originX -= 15;
+    } else if (ev.keyCode == "38") {
+      that.gv.originY += 15;
+    } else if (ev.keyCode == "40") {
+      that.gv.originY -= 15;
     }
   })
   // $(document).keydown(function (ev) {alert ($(this))});

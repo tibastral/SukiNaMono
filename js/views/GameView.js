@@ -15,6 +15,7 @@ var GameView = function (canvas) {
 
   var gameMap;
   var objects = [];
+  var that = this;
 
   this.originX = 0;
   this.originY = 0;
@@ -25,6 +26,9 @@ var GameView = function (canvas) {
     ctx.fillStyle = "rgb(0, 0, 0)";
 
     ctx.beginPath();
+
+    x = x + that.originX;
+    y = y + that.originY;
     ctx.moveTo(x + TILE_WIDTH / 2, y / 2);
 
     ctx.lineTo(x + TILE_WIDTH, (y + TILE_HEIGHT / 2) / 2);
@@ -56,15 +60,14 @@ var GameView = function (canvas) {
     if (object.current_selected_object_id)
       ctx.fillStyle = "rgb(0, 0, 255)";
     ctx.beginPath();
-    ctx.lineTo(object.x + object.width, (object.y + object.height / 2) / 2);
-    ctx.lineTo(object.x + object.width / 2, (object.y + object.height) / 2);
-    ctx.lineTo(object.x, (object.y + object.height / 2) / 2);
-    ctx.lineTo(object.x + object.width / 2, object.y / 2);
+    xPrint = object.x + that.originX;
+    yPrint = object.y + that.originY;
 
-
-
-
-        // ctx.rect(object.x, object.y, object.width, object.height);
+    ctx.lineTo(xPrint + object.width, (yPrint + object.height / 2) / 2);
+    ctx.lineTo(xPrint + object.width / 2, (yPrint + object.height) / 2);
+    ctx.lineTo(xPrint, (yPrint + object.height / 2) / 2);
+    ctx.lineTo(xPrint + object.width / 2, yPrint / 2);
+        // ctx.rect(xPrint, yPrint, object.width, object.height);
     ctx.closePath();
     ctx.fill();
   }
