@@ -47,6 +47,8 @@ var GameView = function (canvas) {
 
   var printObject = function (object)
   {
+    if (object.hidden)
+      return;
     if (gameMap.map[object.yTile][object.xTile] == 1)
       ctx.fillStyle = "rgb(255, 0, 0)";
     else

@@ -11,6 +11,15 @@ var Cursor = function (xTile, yTile)
     that.y = (that.yTile + that.xTile) * that.height / 2
   }
 
+  this.hide = function () {
+    that.hidden = true;
+  }
+
+  this.show = function () {
+    that.hidden = false;
+  }
+
+  this.hidden = false;
   this.x = 0;
   this.y = 0;
   this.xTile = xTile;
