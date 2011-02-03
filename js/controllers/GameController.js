@@ -1,3 +1,4 @@
+var waiter;
 var GameController = function () {
   var canvas = $('#canvas');
   var that = this;
@@ -24,8 +25,12 @@ var GameController = function () {
   this.gv.setMap(gameMap);
   var cursorController = new CursorController(this);
   this.gv.addObject(cursorController.cursor);
+  waiter = new Waiter(2, 2);
+  this.gv.addObject(waiter);
 
-  this.gv.addObject(new Waiter(2, 2));
+
+
+
   $(document).keydown(function (ev) {
     cursorController.cursor.hide();
     if (ev.keyCode == "37") {

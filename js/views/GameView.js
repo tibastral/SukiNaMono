@@ -60,7 +60,9 @@ var GameView = function (canvas) {
     if (object.hidden)
       return;
     if (object.image) {
+      // console.log(xPrint, yPrint, object.image);
       ctx.drawImage(object.image, xPrint, yPrint / 2);
+      return;
     }
     if (gameMap.map[object.yTile][object.xTile] == 1)
       ctx.fillStyle = "rgb(255, 0, 0)";

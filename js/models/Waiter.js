@@ -1,8 +1,17 @@
 var Waiter = function (xTile, yTile)
 {
   var that = this;
-  this.image = new Image();
-  this.image.src = "images/ca-sent-le-sapin.png";
-  this.xTile = xTile;
-  this.yTile = yTile;
-}  
+
+  var init = function () {
+    that.image = new Image();
+    that.image.src = "images/ca-sent-le-sapin.png";
+    that.xTile = xTile;
+    that.yTile = yTile;
+    that.width = TILE_WIDTH;
+    that.height = TILE_HEIGHT;
+    that.computeXY();
+  }
+  init();
+}
+
+augment(Waiter, IsoConvertible);
