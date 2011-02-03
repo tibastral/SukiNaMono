@@ -95,9 +95,9 @@ var GameView = function (canvas) {
   this.draw = function () {
     clear();
     drawMap();
-    for (key in objects) {
-      printObject(objects[key]);
-    }
+    _.each(_.sortBy(_.sortBy(objects, function(e){return e.yTile;}), function (e){return e.xTile;}), function(el) {
+      printObject(el);
+    }) 
   };
 
   this.setMap = function (map) {
