@@ -1,7 +1,8 @@
 - liste de tâches pour SukiNaMono:
   - backlog
-    - refactor 3d iso
-    - scrolling avec les flèches
+    [ok]- refactor 3d iso
+    [ok]- scrolling avec les flèches
+    - png
     - premier personnage à afficher + caractéristiques
     - implémenter la logique du jeu
       - animation
