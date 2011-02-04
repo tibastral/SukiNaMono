@@ -10,19 +10,8 @@ var Waiter = function (xTile, yTile)
   this.speed = .05;
 
   this.compute = function () {
-    var coef_dir_x = 0;
-    var coef_dir_y = 0;
-    
-    if (this.destination.xTile - this.xTile > 0) {
-      coef_dir_x = 1;
-    } else {
-      coef_dir_x = -1;
-    };
-    if (this.destination.yTile - this.yTile > 0) {
-      coef_dir_y = 1;
-    } else {
-      coef_dir_y = -1;
-    };
+    var coef_dir_x = this.destination.xTile > this.xTile ? 1 : -1
+    var coef_dir_y = this.destination.yTile > this.yTile ? 1 : -1
     if (Math.abs(this.destination.xTile - this.xTile) < this.speed) {
       this.xTile = this.destination.xTile;
       coef_dir_x = 0;
