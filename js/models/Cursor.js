@@ -10,6 +10,8 @@ var Cursor = function ()
     that.hidden = false;
   }
 
+  this.compute = function () {}
+
   var init = function () {
     that.hidden = true;
     that.current_selected_object_id = null;

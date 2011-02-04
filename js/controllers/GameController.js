@@ -24,13 +24,7 @@ var GameController = function () {
   this.gv.setMap(gameMap);
   var cursorController = new CursorController(this);
   this.gv.addObject(cursorController.cursor);
-  this.gv.addObject(new Waiter(2, 2));
-  this.gv.addObject(new Waiter(2, 3));
-  this.gv.addObject(new Waiter(2, 4));
-  this.gv.addObject(new Waiter(2, 5));
-  this.gv.addObject(new Waiter(3, 3));
-  this.gv.addObject(new Waiter(1, 3));
-  this.gv.addObject(new Waiter(2, 1));
+  this.gv.addObject(new Waiter(1, 1));
 
 
 
@@ -47,6 +41,14 @@ var GameController = function () {
       that.gv.originY -= 15;
     }
   });
+  this.nextTurn = function () {
+    _.each(that.gv.objects, function (el) {
+      el.compute();
+      // console.log(el);
+    });
+  }
+
   // $(document).keydown(function (ev) {alert ($(this))});
   setInterval(function () {that.gv.draw()}, 30);
+  setInterval(function () {that.nextTurn()}, 30);
 }

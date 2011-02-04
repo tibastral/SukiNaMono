@@ -15,6 +15,7 @@ var GameView = function (canvas) {
 
   var gameMap;
   var objects = [];
+  this.objects = objects;
   var that = this;
 
   this.originX = 0;
@@ -61,7 +62,10 @@ var GameView = function (canvas) {
       return;
     if (object.image) {
       // console.log(xPrint, yPrint, object.image);
-      ctx.drawImage(object.image, xPrint, yPrint / 2);
+      // console.log(object.image.width, object.image.height);
+      BEGIN_X = 13
+      BEGIN_Y = 43
+      ctx.drawImage(object.image, xPrint - BEGIN_X, yPrint / 2 - object.image.height + BEGIN_Y);
       return;
     }
     if (gameMap.map[object.yTile][object.xTile] == 1)

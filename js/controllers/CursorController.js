@@ -30,7 +30,10 @@ var CursorController = function (parentController) {
       gameMap.map[cursor.yTile][cursor.xTile] = 1;
       cursor.current_selected_object_id = null;
     } else {
-      
+      gameView.objects[1].destination = {
+        xTile : cursor.xTile,
+        yTile : cursor.yTile
+      }
     };
   });
   $(document).delegate('.items a', 'click', function () {

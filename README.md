@@ -2,8 +2,8 @@
   - backlog
     [ok]- refactor 3d iso
     [ok]- scrolling avec les flèches
-    - png
-    - premier personnage à afficher + caractéristiques
+    [ok]- png
+    [ok]- premier personnage à afficher + caractéristiques
     - implémenter la logique du jeu
       - animation
       - gens qui rentrent dans le resto (caractéristiques)
