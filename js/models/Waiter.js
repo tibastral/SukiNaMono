@@ -3,8 +3,8 @@ var Waiter = function (xTile, yTile)
   var that = this;
 
   this.destination = {
-    xTile : xTile + 15,
-    yTile : yTile + 10
+    xTile : xTile + 3,
+    yTile : yTile + 5
   }
 
   this.speed = .05;

@@ -27,7 +27,7 @@ var CursorController = function (parentController) {
   $(document).mousemove(onMouseMove);
   $('#canvas').click(function (evt) {
     if (cursor.current_selected_object_id && gameMap.map[cursor.yTile][cursor.xTile] == 0) {
-      gameMap.map[cursor.yTile][cursor.xTile] = 1;
+      gameView.addObject(new Waiter(cursor.xTile, cursor.yTile));
       cursor.current_selected_object_id = null;
     } else {
       gameView.objects[1].destination = {
