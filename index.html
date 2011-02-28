@@ -17,13 +17,25 @@
   <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
+  <style type="text/css" media="screen">
+    .credits {
+      font-family: Arial, "MS Trebuchet", sans-serif;
+      font-size: 200%;
+      background-color: #aa0;
+      color: blue;
+      text-shadow: rgba(255, 255, 0, .5) -1px -1px 1px;
+    }
+  </style>
   <script type="text/javascript" charset="utf-8">
     $(document).ready(function (){
       main();
     });
   </script>
+  <div class="credits">
+    Credits <span class="value">979</span>
+  </div>
   <canvas id="canvas" width="800" height="500"></canvas>
-  <audio src="music/jovial.m4a" loop="loop"></audio>
+  <audio src="music/jovial.m4a" autoplay="autoplay" loop="loop"></audio>
   <div class="items">
     <ul>
       <li>

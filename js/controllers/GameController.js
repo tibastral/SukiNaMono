@@ -20,14 +20,10 @@ var GameController = function () {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   ]);
 
-
   this.gv.setMap(gameMap);
   var cursorController = new CursorController(this);
   this.gv.addObject(cursorController.cursor);
   this.gv.addObject(new Waiter(1, 1));
-
-
-
 
   $(document).keydown(function (ev) {
     cursorController.cursor.hide();
