@@ -1,13 +1,10 @@
 var http = require('http'),  
     io = require('socket.io'), // for npm, otherwise use require('./path/to/socket.io') 
     express = require('express'),
-    // nodemon = require('nodemon'),
 
 app = express.createServer();
 
-
 app.use(express.staticProvider(__dirname + '/public')); 
-
 
 app.get('/toto', function(req, res){ 
    res.send('Hello World'); 
