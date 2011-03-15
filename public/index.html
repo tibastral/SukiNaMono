@@ -26,16 +26,31 @@
       text-shadow: rgba(255, 255, 0, .5) -1px -1px 1px;
     }
   </style>
+  <script src="/socket.io/socket.io.js"></script> 
   <script type="text/javascript" charset="utf-8">
-    $(document).ready(function (){
-      main();
-    });
+    var socket = new io.Socket("localhost"); 
+    socket.connect();
+    socket.on('connect', function(){
+      socket.send({
+        id: 42,
+        password: 'pnt'
+      })// socket.
+    }) 
+    socket.on('message', function(msg){
+      if (msg['action'] == 'init') {
+        main(msg)
+      };
+    }) 
+    socket.on('disconnect', function(){
+      console.log('connection lost')
+    }) 
+
   </script>
   <div class="credits">
     Credits <span class="value">979</span>
   </div>
   <canvas id="canvas" width="800" height="500"></canvas>
-  <audio src="music/jovial.m4a" autoplay="autoplay" loop="loop"></audio>
+  <!-- <audio src="music/jovial.m4a" autoplay="autoplay" loop="loop"></audio> -->
   <div class="items">
     <ul>
       <li>
