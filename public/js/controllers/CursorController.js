@@ -25,9 +25,11 @@ var CursorController = function (parentController) {
   }
   
   $(document).mousemove(onMouseMove);
+
   $('#canvas').click(function (evt) {
     if (cursor.current_selected_object_id && gameMap.map[cursor.yTile][cursor.xTile] == 0) {
-      gameView.addObject(new Waiter(cursor.xTile, cursor.yTile));
+      socket.send({action: 'addChair', yTile: cursor.yTile, xTile: cursor.xTile});
+      // gameView.addObject(new Waiter(cursor.xTile, cursor.yTile));
       cursor.current_selected_object_id = null;
     } else {
       gameView.objects[1].destination = {
@@ -36,6 +38,7 @@ var CursorController = function (parentController) {
       }
     };
   });
+
   $(document).delegate('.items a', 'click', function () {
     cursor.current_selected_object_id = $(this).attr('data-id');
   });

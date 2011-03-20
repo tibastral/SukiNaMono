@@ -6,10 +6,14 @@ var GameController = function (msg) {
   this.gv = new GameView(canvas);
 
   var gameMap = new GameMap(msg.map);
+  this.gameMap = gameMap;
 
   this.gv.setMap(gameMap);
+
   var cursorController = new CursorController(this);
+
   this.gv.addObject(cursorController.cursor);
+
   _.each(msg.objects, function (e) {
     that.gv.addObject(eval("new " + e.typeEl + "(" + e.position.xTile + ", " + e.position.yTile + ")"));
     // that.gv.addObject(new Waiter(e.position.xTile, e.position.yTile));

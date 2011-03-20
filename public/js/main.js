@@ -1,4 +1,4 @@
 function main(msg)
 {
-  var gameController = new GameController(msg);
+  gameController = new GameController(msg);
 }

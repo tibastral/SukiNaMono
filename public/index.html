@@ -28,6 +28,7 @@
   </style>
   <script src="/socket.io/socket.io.js"></script> 
   <script type="text/javascript" charset="utf-8">
+  var gameController;
     var socket = new io.Socket("localhost"); 
     socket.connect();
     socket.on('connect', function(){
@@ -38,7 +39,13 @@
     }) 
     socket.on('message', function(msg){
       if (msg['action'] == 'init') {
-        main(msg)
+        main(msg);
+      } else if (msg['action'] == 'updateMap') {
+        
+          console.log(msg);
+        gameController.gameMap.map = msg.map;
+      } else if (msg['action'] == 'ping') {
+        console.log(msg['msg']);
       };
     }) 
     socket.on('disconnect', function(){
