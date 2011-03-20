@@ -4,7 +4,7 @@ var http = require('http'),
 
 app = express.createServer();
 
-app.use(express.staticProvider(__dirname + '/public')); 
+app.use(express.static(__dirname + '/public')); 
 
 app.get('/toto', function(req, res){ 
    res.send('Hello World'); 
